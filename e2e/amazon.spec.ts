@@ -3,6 +3,7 @@ import retry from "async-retry";
 
 async function main() {
   const browser = await pw.chromium.launch({ headless: false });
+
   console.log("Connecting to browser...");
   const page = await browser.newPage();
 
@@ -19,6 +20,7 @@ async function main() {
   await page.waitForTimeout(5000);
 
   console.log("Page loaded.");
+
   await page.screenshot({ path: "screenshots/screenshot.png", fullPage: true });
   await browser.close();
 }
